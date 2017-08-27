@@ -39,12 +39,9 @@ For instance, it should include a changelog and state which modules must be load
 which plugins are required by this plugin(please state whether they're needed for some or all functionalities)
 Another good example is to instruct users how to stop the unit test module, if any, when it causes too much lag
 Lacking such instructions will likely cause users to assume all modules must be loaded
-The readme file's supposed to be located in folder docs/manuals/plugins
-
-For any plugin including diagrams, you're supposed to store them in a folder named by the plugin name, and place 
-that folder in docs/diagrams/plugins
+The readme file's supposed to be located in folder docs/plugins
 
 Finally, every plugin should be zipped
 It can just be unzipped at the Minesweeper(root) folder to complete its setup
 
-For more info, check the included plugins as examples
+For more info, check the pluginArchiver folder and the included plugins as examples
