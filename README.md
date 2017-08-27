@@ -6,3 +6,4 @@ Just download the whole project and open index.html in Minesweeper to play it!
 1. On all js files, only cfg.js, plugins.js and those in the configurations folder are supposed to be edited by players.
 2. To change the size of the board, just change the size of the browser and press the new game button or refresh the page.
 3. To change the board width/height ratio relative to the browser, please edit boardWRate and boardHRate in cfg.js.
+4. If the console shows errors, please refresh the page and check if any of them appear again. Those not being the cases are rare errors that are to be fixed.
