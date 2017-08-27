@@ -1,0 +1,22 @@
+#topBar {
+    display: table;
+}
+
+#remainMineNum {
+    display: table-cell;
+    vertical-align: middle;
+    width: 1px;
+}
+#newGameBtnFrame {
+    display: table;
+    height: 100%;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+#timer {
+    display: table-cell;
+    right: 0px;
+    vertical-align: middle;
+    width: 1px;
+}

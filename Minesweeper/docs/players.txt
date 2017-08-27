@@ -1,0 +1,12 @@
+Written by: DoubleX
+Written on: GMT 0800 27 Aug 2017
+Version: v1.0
+
+===================================================================================================================
+
+To play Minesweeper, simply use Google Chrome to open index.html.
+
+There's a rather rare bug(1 out of 10 on average) that will cause some plugins to at least partially malfunction.
+To check whether this happens, please always open the console when playing to see if there are error messages.
+If this does happen, please refresh until the error's gone. Refreshing once should be enough in most cases.
+I'll try to fix this issue. I sincerely apologize for any inconvenience caused.
