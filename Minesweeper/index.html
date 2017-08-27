@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>Minesweeper</title>
+
+        <!-- All css files must be loaded before loading any js files -->
+        <link rel="stylesheet" href="css/grids.css">
+        <link rel="stylesheet" href="css/rightSpace.css">
+        <link rel="stylesheet" href="css/topBar.css">
+        <!-- -->
+
+    </head>
+
+    <body ondragstart="return false;" ondrop="return false;">
+
+        <!-- View placeholders -->
+
+        <div id="menu">
+
+            <input id="importProfile" type="file" name="Import Profile" style="display: none;" />
+
+            <select id="profiles">
+                <option value="profiles">==Profile==</option>
+                <option value="import">Import</option>
+                <option value="export">Export</option>
+                <option value="manageProfiles">Manage Profiles</option>
+                <option value="highscores">Highscores</option>
+                <option value="history">History</option>
+                <option value="beg">Beginner</option>
+                <option value="int">Intermediate</option>
+                <option value="exp">Expert</option>
+            </select>
+
+            <select id="opts">
+                <option value="opts">==Options==</option>
+                <option value="board">Board</option>
+                <!-- TODO: Implements this option-->
+                <!-- <option value="gameplay">Gameplay</option> -->
+                <!-- -->
+                <option value="skins">Skins</option>
+                <!-- TODO: Implements this option-->
+                <!-- <option value="sounds">Sounds</option> -->
+                <!-- -->
+            </select>
+
+            <!-- TODO: Implements this section-->
+            <!-- <select id="help">
+                <option value="help">==Help==</option>
+                <option value="userDoc">User Documentations</option>
+                <option value="devDoc">Developer Documentations</option>
+                <option value="aboutProj">About Project</option>
+                <option value="aboutAuthor">About Author</option>
+            </select> -->
+
+        </div>
+
+        <div id="board" class="rightSpace">
+        
+            <div id="topBar">
+
+                <div id="remainMineNum"></div>
+
+                <div id="newGameBtnFrame"><img id="newGameBtn" src="" alt=""></div>
+
+                <div id="timer"></div>
+
+            </div>
+
+            <table cellpadding="0" cellspacing="0">
+
+                <tbody id="grids"></tbody>
+
+            </table>
+
+        </div>
+
+        <div id="rightSpace" class="rightSpace"></div>
+        
+        <div id="bottomBar">
+            
+            <div id="profileNameRegion"></div>
+            
+        </div>
+
+        <!-- -->
+
+        <!-- These declaration files must be loaded first -->
+        <script type="text/javascript" src="js/namespace.js"></script>
+        <script type="text/javascript" src="js/obj/oHeader.js"></script>
+        <script type="text/javascript" src="js/cfg.js"></script>
+        <!-- -->
+        <!-- These function files should be loaded right after loading declarations -->
+        <script type="text/javascript" src="js/func/fNearGrids.js"></script>
+        <script type="text/javascript" src="js/func/fAllOtherGrids.js"></script>
+        <script type="text/javascript" src="js/func/controller/fcRecords.js"></script>
+        <script type="text/javascript" src="js/func/controller/fcMenu.js"></script>
+        <script type="text/javascript" src="js/func/controller/fcProfile.js"></script>
+        <script type="text/javascript" src="js/func/model/fmJSONIO.js"></script>
+        <script type="text/javascript" src="js/func/model/fmMenu.js"></script>
+        <script type="text/javascript" src="js/func/model/fmNewMines.js"></script>
+        <script type="text/javascript" src="js/func/model/fmNewNums.js"></script>
+        <script type="text/javascript" src="js/func/model/fmNewSpaces.js"></script>
+        <script type="text/javascript" src="js/func/model/fmProfile.js"></script>
+        <script type="text/javascript" src="js/func/view/fvNewGameBtn.js"></script>
+        <script type="text/javascript" src="js/func/view/fvProfile.js"></script>
+        <script type="text/javascript" src="js/func/view/fvRemainMineNum.js"></script>
+        <!-- -->
+        <!-- These object files should be loaded right after loading functions -->
+        <script type="text/javascript" src="js/obj/oGrids.js"></script>
+        <script type="text/javascript" src="js/obj/controller/ocClicks.js"></script>
+        <script type="text/javascript" src="js/obj/controller/ocGrids.js"></script>
+        <script type="text/javascript" src="js/obj/controller/ocTopBar.js"></script>
+        <script type="text/javascript" src="js/obj/model/omGrids.js"></script>
+        <script type="text/javascript" src="js/obj/model/omRecord.js"></script>
+        <script type="text/javascript" src="js/obj/model/grid/omGrid.js"></script>
+        <script type="text/javascript" src="js/obj/model/grid/omMine.js"></script>
+        <script type="text/javascript" src="js/obj/model/grid/omNum.js"></script>
+        <script type="text/javascript" src="js/obj/model/grid/omSpace.js"></script>
+        <script type="text/javascript" src="js/obj/view/ovDrawnSkin.js"></script>
+        <script type="text/javascript" src="js/obj/view/ovLayout.js"></script>
+        <script type="text/javascript" src="js/obj/view/ovTimer.js"></script>
+        <!-- -->
+        <!-- These test files should be loaded right before loading addons -->
+        <script type="text/javascript" src="js/unitTest/func/runFNearGridsUnitTestSuite.js"></script>
+        <script type="text/javascript" src="js/unitTest/func/controller/runFCMenuUnitTestSuite.js"></script>
+        <script type="text/javascript" src="js/unitTest/func/model/runFMNewMinesUnitTestSuite.js"></script>
+        <script type="text/javascript" src="js/unitTest/func/view/runFVRemainMineNumUnitTestSuite.js"></script>
+        <script type="text/javascript" src="js/unitTest/obj/controller/runOCGridsUnitTestSuite.js"></script>
+        <script type="text/javascript" src="js/unitTest/obj/model/grid/runOMGridUnitTestSuite.js"></script>
+        <script type="text/javascript" src="js/unitTest/obj/view/runOVTimerUnitTestSuite.js"></script>
+        <!-- -->
+        <!-- These addon files should be loaded right before loading the entry points -->
+        <script type="text/javascript" src="js/unitTest/runUnitTestSuite.js"></script>
+        <script type="text/javascript" src="js/loadPlugins.js"></script>
+        <script type="text/javascript" src="js/plugins/plugins.js"></script>
+        <script type="text/javascript" src="js/subscription.js"></script>
+        <!-- -->
+        <!-- These entry point files should be loaded last -->
+        <script type="text/javascript" src="js/factory.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <!-- -->
+
+    </body>
+
+</html>
