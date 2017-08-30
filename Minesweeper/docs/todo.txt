@@ -1,15 +1,16 @@
 Written by: DoubleX
-Written on: GMT 0800 27 Aug 2017
-Version: v1.0
+Written on: GMT 0300 30 Aug 2017
+Version: v1.1
 
 ===================================================================================================================
 
 The below list contains all incomplete/missing pieces that are not marked in the codebase:
 
 |-----------------------------------------------------------------------------------------------------------------|
-|Number|Type                |Name                   |Description                                         |Priority|
+|Number|Type                |Name                |Description                                            |Priority|
 |-----------------------------------------------------------------------------------------------------------------|
-|1     |Feature             |Zini/HZini             |Implement the Zini/HZini gathering features         |Highest |
-|2     |Feature             |Anti-cheat             |Makes players harder to cheat without being caught  |Higher  |
-|3     |Compatibility       |Non Google Chrome      |Makes this projet compatible with other browsers    |High    |
+|1     |Feature             |Zini/HZini          |Implement the Zini/HZini gathering features            |Highest |
+|2     |Feature             |No Question Mark    |Lets players enable/disble the question mark on the fly|Higher  |
+|3     |Feature             |Anti-cheat          |Makes players harder to cheat without being caught     |High    |
+|4     |Compatibility       |Non Google Chrome   |Makes this projet compatible with other browsers       |Medium  |
 |-----------------------------------------------------------------------------------------------------------------|
