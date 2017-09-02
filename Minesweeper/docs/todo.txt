@@ -1,5 +1,5 @@
 Written by: DoubleX
-Written on: GMT 0300 30 Aug 2017
+Written on: GMT 0200 2 Sep 2017
 Version: v1.1
 
 ===================================================================================================================
@@ -7,10 +7,13 @@ Version: v1.1
 The below list contains all incomplete/missing pieces that are not marked in the codebase:
 
 |-----------------------------------------------------------------------------------------------------------------|
-|Number|Type                |Name                |Description                                            |Priority|
+|Number|Type               |Name                 |Description                                            |Priority|
 |-----------------------------------------------------------------------------------------------------------------|
-|1     |Feature             |Zini/HZini          |Implement the Zini/HZini gathering features            |Highest |
-|2     |Feature             |No Question Mark    |Lets players enable/disble the question mark on the fly|Higher  |
-|3     |Feature             |Anti-cheat          |Makes players harder to cheat without being caught     |High    |
-|4     |Compatibility       |Non Google Chrome   |Makes this projet compatible with other browsers       |Medium  |
+|1     |Feature            |No Question Mark     |Lets players enable/disble the question mark on the fly|Highest |
+|2     |Feature            |Zini/HZini           |Implement the Zini/HZini gathering features            |Higher  |
+|3     |Feature            |Always Solvable Board|Lets players play boards that don't have to guess      |High    |
+|4     |Feature            |Store Generated Board|Lets players save and load a generated board           |Medium  |
+|5     |Feature            |Anti-cheat           |Makes players harder to cheat without being caught     |Low     |
+|6     |Compatibility      |Non Google Chrome    |Makes this projet compatible with other browsers       |Lower   |
+|7     |User Interface     |Beautification       |Makes the user interface be more similar to Minesweeper|Lowest  |
 |-----------------------------------------------------------------------------------------------------------------|
