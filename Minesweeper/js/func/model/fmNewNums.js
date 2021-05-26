@@ -9,7 +9,7 @@
  * @param {Function} PUBLISH - Publishes itself to its subscribers
  * @returns {Object[String, Function]} The requested function mapping
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMNewNums = function(
         F_NEAR_GRIDS, OMNum, OC_CLICKS, GRID, PUBLISH) {
@@ -26,36 +26,11 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMNewNums = function(
      * @param {Function} callback - The function of the grid data owner
      * @returns {Array[Array[OGrid]]} The requested list of lists of grids
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $.newNums = function(oGrids, callback) {
-        return oGrids.map($._newRowNumsFunc(callback));
+        return oGrids.map($._newRowNums.bind($, callback));
     }; // $.newNums
-
-    /**
-     * Potential Hotspot/Pure function
-     * @author DoubleX
-     * @param {Function} callback - The function of the grid data owner
-     * @returns {Function(Array[OGrid], Number, Array[Array[OGrid]], 
-     *          Array[OGrid]) => Array[OGrid]} The requested function
-     * @since v1.0
-     * @version v1.0
-     */
-    $._newRowNumsFunc = function(callback) {
-        /**
-         * Potential Hotspot/Pure function
-         * @author DoubleX
-         * @param {Array[OGrid]} row - A list of grid data
-         * @param {Number} rowIndex - The currently checked row index
-         * @param {Array[Array[OGrid]]} oGrids - List of lists of grids
-         * @returns {Array[OGrid]} The requested list of grid data
-         * @since v1.0
-         * @version v1.0
-         */
-        return function(row, rowIndex, oGrids) {
-            return $._newRowNums(callback, row, rowIndex, oGrids);
-        };
-    }; // $._newRowNumsFunc
 
     /**
      * Potential Hotspot/Pure function
@@ -66,39 +41,11 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMNewNums = function(
      * @param {Array[Array[OGrid]]} oGrids - List of list of grid data
      * @returns {Array[OGrid]} The requested list of grid data
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._newRowNums = function(callback, row, rowIndex, oGrids) {
-        return row.map($._newNumFunc(callback, rowIndex, oGrids));
+        return row.map($._newNumNull.bind($, callback, rowIndex, oGrids));
     }; // $._newRowNums
-
-    /**
-     * Potential Hotspot/Pure function
-     * @author DoubleX
-     * @param {Function} callback - The function of the grid data owner
-     * @param {Number} rowIndex - The currently checked row index
-     * @param {Array[Array[OGrid]]} oGrids - List of list of grid data
-     * @returns {Function(OGrid/Nullable, Number, Array[OGrid]) => 
-     *          OGrid/Nullable} The requested function
-     * @since v1.0
-     * @version v1.0
-     */
-    $._newNumFunc = function(callback, rowIndex, oGrids) {
-        /**
-         * Potential Hotspot/Pure function
-         * @author DoubleX
-         * @param {OGrid/Nullable} oGrid - An object storing all grid data
-         * @param {Number} colIndex - The currently checked col index
-         * @param {Array[OGrid]} row - A list of grid data
-         * @returns {OGrid/Nullable} The requested num data or intact grid
-         * @since v1.0
-         * @version v1.0
-         */
-        return function(oGrid, colIndex, row) {
-            return $._newNumNull(
-                    callback, rowIndex, oGrids, oGrid, colIndex, row);
-        };
-    }; // $._newNumFunc
 
     /**
      * Potential Hotspot/Pure function

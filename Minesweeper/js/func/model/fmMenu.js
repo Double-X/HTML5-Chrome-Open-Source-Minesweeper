@@ -9,7 +9,7 @@
  * @param {Function} PUBLISH - Publishes itself to its subscribers
  * @returns {Object[String, Function]} The requested function mapping
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMMenu = function(
         IS_INVALID_BOARD_PARAMS, SKINS, FMJSONIO, PUBLISH) {
@@ -72,36 +72,12 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMMenu = function(
      * @param {Number/Nullable} mineNum - The number of mines in the grids
      * @returns {String} The list of board param check result messages
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $.msgBoardParamCheckResults = function(w, h, mineNum) {
-        return _INVALID_BOARD_MSGS.filter($._isInvalidBoardParamFunc(+w, +h, 
+        return _INVALID_BOARD_MSGS.filter($._isInvalidBoardParam.bind($, +w, +h, 
                 +mineNum)).join($._MSG_BOARD_PARAM_CHECK_RESULT_SEPARATOR);
     }; // $.msgBoardParamCheckResults
-
-    /**
-     * Pure function
-     * @author DoubleX
-     * @param {Number} w - The number of cols constituting the grids
-     * @param {Number} h - The number of rows constituting the grids
-     * @param {Number} mineNum - The number of mines in the grids
-     * @returns {Function(String) => Boolean} The requested function
-     * @since v1.0
-     * @version v1.0
-     */
-    $._isInvalidBoardParamFunc = function(w, h, mineNum) {
-        /**
-         * Pure function
-         * @author DoubleX
-         * @param {String} invalidBoardMsg - The invalidity description
-         * @returns {Boolean} The check result
-         * @since v1.0
-         * @version v1.0
-         */
-        return function(invalidBoardMsg) {
-            return $._isInvalidBoardParam(w, h, mineNum, invalidBoardMsg);
-        };
-    }; // $._isInvalidBoardParamFunc
 
     /**
      * Pure function

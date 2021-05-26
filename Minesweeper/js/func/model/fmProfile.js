@@ -6,7 +6,7 @@
  * @param {Function} PUBLISH - Publishes itself to its subscribers
  * @returns {Object[String, Function]} The requested function mapping
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMProfile = function(FMJSONIO, PUBLISH) {
 
@@ -314,37 +314,14 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMProfile = function(FMJSONIO, PUBLISH) {
      * @param {Object} highscore - The highscore with the requested boardSpec
      * @returns {Array[String]} The list of stats having new highscores
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._newHighscoresStats = function(record, highscore) {
         // These codes are easy, simple and small enough to be kept all together
         return _KEYS($._HIGHSCORES_FIELD_RULES).filter(
-                $._isNewHighscoreFunc(record, highscore));
+                $._isNewHighscore.bind($, record, highscore));
         //
     }; // $._newHighscoresStats
-
-    /**
-     * Pure function
-     * @author DoubleX
-     * @param {Object} record - The record to be checked against the highscore
-     * @param {Object} highscore - The highscore with the requested boardSpec
-     * @returns {Function{String}} The requested function
-     * @since v1.0
-     * @version v1.0
-     */
-    $._isNewHighscoreFunc = function(record, highscore) {
-        /**
-         * Pure function
-         * @author DoubleX
-         * @param {String} field - The field to be compared against each other
-         * @returns {Boolean} The check result
-         * @since v1.0
-         * @version v1.0
-         */
-        return function(field) {
-            return $._isNewHighscore(record, highscore, field);
-        };
-    }; // $._isNewHighscoreFunc
 
     /**
      * Nullipotent
@@ -383,33 +360,12 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMProfile = function(FMJSONIO, PUBLISH) {
      * @param {Array[String]} newHighscoresStats - The list of stats having
      *                                              new highscores
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._updateHighscores = function(record, highscore, newHighscoresStats) {
-        newHighscoresStats.forEach($._updateHighscoreFunc(record, highscore));
+        newHighscoresStats.forEach(
+                $._updateHighscore.bind($, record, highscore));
     }; // $._updateHighscores
-
-    /**
-     * Pure function
-     * @author DoubleX
-     * @param {Object} record - The record to be checked against the highscore
-     * @param {Object} highscore - The highscore with the boardSpec
-     * @returns {Function{String}} The requested function
-     * @since v1.0
-     * @version v1.0
-     */
-    $._updateHighscoreFunc = function(record, highscore) {
-        /**
-         * Idempotent
-         * @author DoubleX
-         * @param {String} field - The field to be updated as new highscores
-         * @since v1.0
-         * @version v1.0
-         */
-        return function(field) {
-            return $._updateHighscore(record, highscore, field);
-        };
-    }; // $._updateHighscoreFunc
 
     /**
      * Idempotent

@@ -28,32 +28,8 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMNewSpaces = function(
      * @version v1.0
      */
     $.newSpaces = function(oGrids, callback) {
-        return oGrids.map($._newRowSpacesFunc(callback));
+        return oGrids.map($._newRowSpaces.bind($, callback));
     }; // $.newSpaces
-
-    /**
-     * Potential Hotspot/Pure function
-     * @author DoubleX
-     * @param {Function} callback - The function of the grid data owner
-     * @returns {Function(Array[OGrid], Number) => Array[OGrid]} The requested
-     *                                                          function
-     * @since v1.0
-     * @version v1.0
-     */
-    $._newRowSpacesFunc = function(callback) {
-        /**
-         * Potential Hotspot/Pure function
-         * @author DoubleX
-         * @param {Array[OGrid]} row - A list of grid data
-         * @param {Number} rowIndex - The currently checked row index
-         * @returns {Array[OGrid]} The requested list of grid data
-         * @since v1.0
-         * @version v1.0
-         */
-        return function(row, rowIndex) {
-            return $._newRowSpaces(callback, row, rowIndex);
-        };
-    }; // $._newRowSpacesFunc
 
     /**
      * Potential Hotspot/Pure function
