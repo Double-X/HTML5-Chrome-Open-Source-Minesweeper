@@ -25,34 +25,8 @@ DoubleX.PROJ.MINESWEEPER.FUNC.FAllOtherGrids = function(PUBLISH) {
      * @version v1.0
      */
     $.allOtherGrids = function(x, y, oGrids) {
-        return oGrids.reduce($._allOtherRowGridsFunc(x, y), []);
+        return oGrids.reduce($._allOtherRowGrids.bind($, x, y), []);
     }; // $.allOtherGrids
-
-    /**
-     * Potential Hotspot/Pure function
-     * @author DoubleX
-     * @param {Number} x - The col index of the current grid
-     * @param {Number} y - The row index of the current grid
-     * @returns {Function(Array[OGrid], Array[OGrid]) => Array[OGrid], Number} 
-     *         The requested function
-     * @since v1.0
-     * @version v1.0
-     */
-    $._allOtherRowGridsFunc = function(x, y) {
-        /**
-         * Potential Hotspot/Pure function
-         * @author DoubleX
-         * @param {Array[OGrid]} accumGrids - The list of accumulated grids
-         * @param {Array[OGrid]} row - The list of grid
-         * @param {Number} rowIndex - The currently checked row index
-         * @returns {Array[OGrid]} The requested list of grids
-         * @since v1.0
-         * @version v1.0
-         */
-        return function(accumGrids, row, rowIndex) {
-            return $._allOtherRowGrids(x, y, accumGrids, row, rowIndex);
-        };
-    }; // $._allOtherRowGridsFunc
 
     /**
      * Potential Hotspot/Pure function

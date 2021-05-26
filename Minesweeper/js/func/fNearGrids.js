@@ -6,7 +6,7 @@
  * @param {Function} PUBLISH - Publishes itself to its subscribers
  * @returns {Object[String, Function]} The requested function mapping
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 DoubleX.PROJ.MINESWEEPER.FUNC.FNearGrids = function(NEAR_RA, PUBLISH) {
 
@@ -50,7 +50,7 @@ DoubleX.PROJ.MINESWEEPER.FUNC.FNearGrids = function(NEAR_RA, PUBLISH) {
      * @returns {Object[String, Object[String, Number]]} The requested mapping
      *                                                  of nearby coordinates
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._nearGridBounds = function(x, y, w, h) {
         var isTop = y <= 0, isBottom = y >= h - NEAR_RA;
@@ -68,8 +68,7 @@ DoubleX.PROJ.MINESWEEPER.FUNC.FNearGrids = function(NEAR_RA, PUBLISH) {
                 return $._newNearGridBounds(-NEAR_RA, 0, -NEAR_RA, 0);
             }
             return $._newNearGridBounds(-NEAR_RA, NEAR_RA, -NEAR_RA, 0);
-        }
-        if (isMostLeft) {
+        } else if (isMostLeft) {
             return $._newNearGridBounds(0, NEAR_RA, -NEAR_RA, NEAR_RA);
         } else if (isMostRight) {
             return $._newNearGridBounds(-NEAR_RA, 0, -NEAR_RA, NEAR_RA);
