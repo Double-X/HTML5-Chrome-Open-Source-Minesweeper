@@ -4,7 +4,7 @@
  * @author DoubleX
  * @param {Object} namespace - The namespace of the whole codebase
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(namespace) {
 
@@ -414,12 +414,12 @@ DoubleX.PROJ.MINESWEEPER.PLUGINS.DEMO.FCDemo = function(
      * @author DoubleX
      * @returns {Dom} The requested demo player bar row
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._newDemoPlayerBarRow = function() {
         var demoPlayerBarRow = document.createElement('tr');
         $._newDemoPlayerBarButtons().forEach(
-                $._addDemoPlayerBarButtonFunc(demoPlayerBarRow));
+                $._addDemoPlayerBarButton.bind($, demoPlayerBarRow));
         return demoPlayerBarRow;
     }; // $._newDemoPlayerBarRow
 
@@ -465,26 +465,6 @@ DoubleX.PROJ.MINESWEEPER.PLUGINS.DEMO.FCDemo = function(
     }; // $._newDemoPlayerBarButtonImg
 
     /**
-     * Pure function
-     * @author DoubleX
-     * @param {Dom} demoPlayerBarBody - The body containing demo player buttons
-     * @returns {Function(Dom)} The requested function
-     * @since v1.0
-     * @version v1.0
-     */
-    $._addDemoPlayerBarButtonFunc = function(demoPlayerBarBody) {
-        /**
-         * @author DoubleX
-         * @param {Dom} demoPlayerButton - A button in the demo player bar
-         * @since v1.0
-         * @version v1.0
-         */
-        return function(demoPlayerButton) {
-            $._addDemoPlayerBarButton(demoPlayerBarBody, demoPlayerButton);
-        };
-    }; // $._addDemoPlayerBarButtonFunc
-
-    /**
      * @author DoubleX
      * @param {Dom} demoPlayerBarBody - The body containing demo player buttons
      * @param {Dom} demoPlayerButton - A button in the demo player bar
@@ -494,62 +474,6 @@ DoubleX.PROJ.MINESWEEPER.PLUGINS.DEMO.FCDemo = function(
     $._addDemoPlayerBarButton = function(demoPlayerBarBody, demoPlayerButton) {
         demoPlayerBarBody.appendChild(demoPlayerButton);
     }; // $._addDemoPlayerBarButton
-
-    /**
-     * Idempotent
-     * @author DoubleX
-     * @since v1.0
-     * @version v1.0
-     */
-    $._changeTo10PercentSpeed = function() { $.changeSpeed(0.1); };
-
-    /**
-     * Idempotent
-     * @author DoubleX
-     * @since v1.0
-     * @version v1.0
-     */
-    $._changeTo20PercentSpeed = function() { $.changeSpeed(0.2); };
-
-    /**
-     * Idempotent
-     * @author DoubleX
-     * @since v1.0
-     * @version v1.0
-     */
-    $._changeTo50PercentSpeed = function() { $.changeSpeed(0.5); };
-
-    /**
-     * Idempotent
-     * @author DoubleX
-     * @since v1.0
-     * @version v1.0
-     */
-    $._changeTo100PercentSpeed = function() { $.changeSpeed(1); };
-
-    /**
-     * Idempotent
-     * @author DoubleX
-     * @since v1.0
-     * @version v1.0
-     */
-    $._changeTo200PercentSpeed = function() { $.changeSpeed(2); };
-
-    /**
-     * Idempotent
-     * @author DoubleX
-     * @since v1.0
-     * @version v1.0
-     */
-    $._changeTo500PercentSpeed = function() { $.changeSpeed(5); };
-
-    /**
-     * Idempotent
-     * @author DoubleX
-     * @since v1.0
-     * @version v1.0
-     */
-    $._changeTo1000PercentSpeed = function() { $.changeSpeed(10); };
 
     /**
      * @author DoubleX
@@ -652,7 +576,7 @@ DoubleX.PROJ.MINESWEEPER.PLUGINS.DEMO.FCDemo = function(
      * @version v1.0
      */
     $._onSetDemoUISize = function(size) {
-        $._resizableDemoUIs().forEach($._setDemoUISizeFunc(size));
+        $._resizableDemoUIs().forEach($._setDemoUISize.bind($, size));
     }; // $._onSetDemoUISize
 
     /**
@@ -666,25 +590,6 @@ DoubleX.PROJ.MINESWEEPER.PLUGINS.DEMO.FCDemo = function(
         return [$._demoPathCursor()].concat(
                 Object.keys($._DEMO_PLAYER_BUTTON_SRCS).map($._demoUI));
     }; // $._resizableDemoUIs
-
-    /**
-     * Pure function
-     * @author DoubleX
-     * @param {Number} size - The raw size of the cursor showing the path
-     * @returns {Function{Dom}} The requested function
-     * @since v1.0
-     * @version v1.0
-     */
-    $._setDemoUISizeFunc = function(size) {
-        /**
-         * Idempotent
-         * @author DoubleX
-         * @param {Dom} demoUI - The demo UI that are supposed to be resized
-         * @since v1.0
-         * @version v1.0
-         */
-        return function(demoUI) { $._setDemoUISize(size, demoUI); };
-    }; // $._setDemoUISizeFunc
 
     /**
      * Idempotent
@@ -867,13 +772,13 @@ DoubleX.PROJ.MINESWEEPER.PLUGINS.DEMO.FCDemo = function(
     $._demoUI = function(domId) { return document.getElementById(domId); };
 
     $._DEMO_PLAYER_BUTTON_LISTENERS = {
-        tenPercent: $._changeTo10PercentSpeed,
-        twentyPercent: $._changeTo20PercentSpeed,
-        fiftyPercent: $._changeTo50PercentSpeed,
-        oneHundredPercent: $._changeTo100PercentSpeed,
-        twoHundredPercent: $._changeTo200PercentSpeed,
-        fiveHundredPercent: $._changeTo500PercentSpeed,
-        oneThousandPercent: $._changeTo1000PercentSpeed,
+        tenPercent: $.changeSpeed.bind($, 0.1),
+        twentyPercent: $.changeSpeed.bind($, 0.2),
+        fiftyPercent: $.changeSpeed.bind($, 0.5),
+        oneHundredPercent: $.changeSpeed.bind($, 1),
+        twoHundredPercent: $.changeSpeed.bind($, 2),
+        fiveHundredPercent: $.changeSpeed.bind($, 5),
+        oneThousandPercent: $.changeSpeed.bind($, 10),
         pause: $.pause,
         play: $.play,
         stop: $.stop

@@ -4,7 +4,7 @@
  * @author DoubleX
  * @param {Object} namespace - The namespace of the whole codebase
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(namespace) {
 
@@ -70,14 +70,12 @@
      * Idempotent
      * @author DoubleX
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $$$._subscribe = function() {
         _SUBSCRIBE("OCGrids cl _initCaches", $$$._initCaches.bind(this));
-        _SUBSCRIBE("OCGrids cl _onStart", 
-                $$$._setIsEndedFunc.call(this, false).bind(this));
-        _SUBSCRIBE("OCGrids cl _onEnd", 
-                $$$._setIsEndedFunc.call(this, true).bind(this));
+        _SUBSCRIBE("OCGrids cl _onStart", $$$._setIsEnded.bind(this, false));
+        _SUBSCRIBE("OCGrids cl _onEnd", $$$._setIsEnded.bind(this, true));
         _SUBSCRIBE("OMGrid cl _onFlag", $$$._increaseRightClickNum.bind(this));
         _SUBSCRIBE("OMGrid cl _onLeftUp", $$$._onLeftUp.bind(this));
         _SUBSCRIBE("OMGrid cl _onMidUp", $$$._onMidUp.bind(this));
@@ -104,23 +102,6 @@
         this._clickNum = 0, this._leftClickNum = 0;
         this._midClickNum = 0, this._rightClickNum = 0;
     }; // $$$._initClickNums
-
-    /**
-     * Potential Hotspot/Pure function
-     * @author DoubleX
-     * @param {Boolean} isEnded - Whether the game board's ended
-     * @returns {Function()} The requested function
-     * @since v1.0
-     * @version v1.0
-     */
-    $$$._setIsEndedFunc = function(isEnded) {
-        /**
-         * Potential Hotspot/Idempotent
-         * @since v1.0
-         * @version v1.0
-         */
-        return function() { $$$._setIsEnded.call(this, isEnded); };
-    }; // $$$._setIsEndedFunc
 
     /**
      * Potential Hotspot/Idempotent

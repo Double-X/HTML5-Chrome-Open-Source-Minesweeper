@@ -191,9 +191,9 @@
     $._subscribe = function() {
         _SUBSCRIBE("OCGrids path _initCaches", this._initCaches.bind(this));
         _SUBSCRIBE("OCGrids path _onStart", 
-                this._setIsEndedFunc.call(this, false).bind(this));
+                this._setIsEnded.bind(this, false).bind(this));
         _SUBSCRIBE("OCGrids path _onEnd", 
-                this._setIsEndedFunc.call(this, true).bind(this));
+                this._setIsEnded.bind(this, true).bind(this));
     }; // $._subscribe
 
     /**
@@ -219,23 +219,6 @@
         this._pathTimes = [], this._pathPts = [];
         //
     }; // $._initPaths
-
-    /**
-     * Potential Hotspot/Pure function
-     * @author DoubleX
-     * @param {Boolean} isEnded - Whether the game board's ended
-     * @returns {Function()} The requested function
-     * @since v1.0
-     * @version v1.0
-     */
-    $._setIsEndedFunc = function(isEnded) {
-        /**
-         * Potential Hotspot/Idempotent
-         * @since v1.0
-         * @version v1.0
-         */
-        return function() { this._setIsEnded.call(this, isEnded); };
-    }; // $._setIsEndedFunc
 
     /**
      * Potential Hotspot/Idempotent
