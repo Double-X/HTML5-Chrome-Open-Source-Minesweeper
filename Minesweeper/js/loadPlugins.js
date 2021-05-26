@@ -6,7 +6,7 @@
  * @param {Object} LIST - The relative file path having all plugin name
  * @param {Function} CALLBACK - Called when all plugins are loaded
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 DoubleX.PROJ.MINESWEEPER.LoadPlugins = function(PLUGINS, LIST, CALLBACK) {
 
@@ -65,12 +65,12 @@ DoubleX.PROJ.MINESWEEPER.LoadPlugins = function(PLUGINS, LIST, CALLBACK) {
      * @author DoubleX
      * @param {String} department - The name of the department
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _loadDepartment(department) {
         _setCurComponent(department);
-        setTimeout(_loadNextComponentFunc(_COMPONENT_PATHS[department]), 
-                _DEPARTMENT_DELAY);
+        setTimeout(_loadNextComponent.bind(undefined, 
+                _COMPONENT_PATHS[department]), _DEPARTMENT_DELAY);
     }; // _loadDepartment
 
     /**
@@ -83,23 +83,6 @@ DoubleX.PROJ.MINESWEEPER.LoadPlugins = function(PLUGINS, LIST, CALLBACK) {
     function _setCurComponent(department) {
         _curUnloadedDepartmentComponents = LIST[department];
     }; // _setCurComponent
-
-    /**
-     * Pure function
-     * @author DoubleX
-     * @param {String} path - The path of the plugin component
-     * @returns {Function()} The requested function
-     * @since v1.0
-     * @version v1.0
-     */
-    function _loadNextComponentFunc(path) {
-        /**
-         * @author DoubleX
-         * @since v1.0
-         * @version v1.0
-         */
-        return function() { _loadNextComponent(path); };
-    }; // _loadNextComponentFunc
 
     /**
      * @author DoubleX
@@ -128,11 +111,11 @@ DoubleX.PROJ.MINESWEEPER.LoadPlugins = function(PLUGINS, LIST, CALLBACK) {
      * @param {String} path - The path of the plugin component
      * @param {String} component - The name of the plugin component
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _loadComponent(path, component) {
         _appendComponent(path, component);
-        setTimeout(_loadNextComponentFunc(path), _COMPONENT_DELAY);
+        setTimeout(_loadNextComponent.bind(undefined, path), _COMPONENT_DELAY);
     }; // _loadComponent
 
     /**
@@ -173,32 +156,12 @@ DoubleX.PROJ.MINESWEEPER.LoadPlugins = function(PLUGINS, LIST, CALLBACK) {
      * @author DoubleX
      * @param {String} plugin - The name of the plugin container
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _checkNeededPlugins(plugin) {
         _KEYS(PLUGINS[plugin].neededPlugins).forEach(
-                _checkNeededPluginFunc(plugin));
+                _checkNeededPlugin.bind(undefined, plugin));
     }; // _checkNeededPlugins
-
-    /**
-     * Pure function
-     * @author DoubleX
-     * @param {String} plugin - The name of the plugin container
-     * @returns {Function(String)} The requested function
-     * @since v1.0
-     * @version v1.0
-     */
-    function _checkNeededPluginFunc(plugin) {
-        /**
-         * @author DoubleX
-         * @param {String} neededPlugin - The name of the needed one
-         * @since v1.0
-         * @version v1.0
-         */
-        return function(neededPlugin) {
-            _checkNeededPlugin(plugin, neededPlugin);
-        };
-    }; // _checkNeededPluginFunc
 
     /**
      * @author DoubleX
