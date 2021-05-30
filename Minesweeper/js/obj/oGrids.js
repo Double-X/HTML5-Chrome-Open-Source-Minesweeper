@@ -5,7 +5,7 @@
  * @author DoubleX
  * @param {OGrids} OGrids - The function of this prototype
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(OGrids) {
 
