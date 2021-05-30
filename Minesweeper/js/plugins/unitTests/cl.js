@@ -4,7 +4,7 @@
  * @author DoubleX
  * @param {Object} namespace - The namespace of the whole codebase
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(namespace) {
 
@@ -80,7 +80,7 @@
     /**
      * Hotspot/No-op
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $$$._verifyTotalClickNum = function() {
         // It's not tautological as it exposes a hidden assumption
@@ -92,9 +92,7 @@
         console.info("this._isEnded: " + this._isEnded);
         if (totalClickNum === this._clickNum && !this._isEnded) {
             console.info("Passed!");
-        } else {
-            console.info("Failed!");
-        }
+        } else console.info("Failed!");
         //
     }; // $$$._verifyTotalClickNum
 

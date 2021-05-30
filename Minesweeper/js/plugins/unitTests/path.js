@@ -4,7 +4,7 @@
  * @author DoubleX
  * @param {Object} namespace - The namespace of the whole codebase
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(namespace) {
 
@@ -35,7 +35,7 @@
      * @param {Number} pathX - The path x component in the board
      * @param {Number} pathY - The path y component in the board
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $$$._storeTimePts = function(pathX, pathY) {
         // It's not tautological as it exposes a hidden assumption
@@ -49,9 +49,7 @@
         console.info("this._isEnded: " + this._isEnded);
         if (timesLength === ptsLength && !this._isEnded) {
             console.info("Passed!");
-        } else {
-            console.info("Failed!");
-        }
+        } else console.info("Failed!");
         //
     }; // $$$._storeTimePts
 

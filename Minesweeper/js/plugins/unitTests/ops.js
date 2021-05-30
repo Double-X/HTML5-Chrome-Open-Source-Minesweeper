@@ -4,7 +4,7 @@
  * @author DoubleX
  * @param {Object} namespace - The namespace of the whole codebase
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(namespace) {
 
@@ -58,7 +58,7 @@
     /**
      * Hotspot/No-op
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $$$._updateRevealedOpsCount = function() {
         // It's not tautological as it exposes a hidden assumption
@@ -70,9 +70,7 @@
         if (this._revealedOps > 0 && this._revealedOps <= ops && 
                 !this._isEnded) {
             console.info("Passed!");
-        } else {
-            console.info("Failed!");
-        }
+        } else console.info("Failed!");
         //
     }; // $$$._updateRevealedOpsCount
 

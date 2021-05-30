@@ -4,7 +4,7 @@
  * @author DoubleX
  * @param {Object} namespace - The namespace of the whole codebase
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(namespace) {
 
@@ -58,7 +58,7 @@
     /**
      * Hotspot/No-op
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $$$._updateSolvedIsIsNum = function() {
         // It's not tautological as it exposes a hidden assumption
@@ -68,9 +68,7 @@
         console.info("this._solvedIsIsNum: " + this._solvedIsIsNum);
         if (this._solvedIsIsNum > 0 && this._solvedIsIsNum <= isIs) {
             console.info("Passed!");
-        } else {
-            console.info("Failed!");
-        }
+        } else console.info("Failed!");
         //
     }; // $$$._updateSolvedIsIsNum
 

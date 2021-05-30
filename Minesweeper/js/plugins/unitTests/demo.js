@@ -4,7 +4,7 @@
  * @author DoubleX
  * @param {Object} namespace - The namespace of the whole codebase
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(namespace) {
 
@@ -46,23 +46,11 @@
      * @author DoubleX
      * @param {Object} stats - The demo stat mapping
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $$$._onDemoEnd = function(stats) {
-        Object.keys(stats).forEach($$$._checkStatFunc(stats).bind(this));
+        Object.keys(stats).forEach($$$._checkStat.bind(this, stats));
     }; // $$$._onDemoEnd
-
-    /**
-     * Pure function
-     * @author DoubleX
-     * @param {Object} stats - The demo stat mapping
-     * @retruns {Function[String]} The requested function
-     * @since v1.0
-     * @version v1.0
-     */
-    $$$._checkStatFunc = function(stats) {
-        return function(stat) { $$$._checkStat.call(this, stats, stat); };
-    }; // $$$._checkStatFunc
 
     /**
      * No-op
