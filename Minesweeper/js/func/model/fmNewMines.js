@@ -11,7 +11,7 @@
  * @returns {Object[String, Function]} The requested function mapping
  * @since v1.0
  * @todo Reconsider whether making this function nullipotent will be better
- * @version v1.0
+ * @version v1.1
  */
 DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMNewMines = function(
         OMMine, OC_CLICKS, GRID, PUBLISH) {
