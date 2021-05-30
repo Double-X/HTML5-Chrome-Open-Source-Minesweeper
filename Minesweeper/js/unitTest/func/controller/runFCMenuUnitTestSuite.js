@@ -4,7 +4,7 @@
  * @author DoubleX
  * @param {Function} $ - The component to be unit tested
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 DoubleX.PROJ.MINESWEEPER.TEST.UNIT.RunFCMenuUnitTestSuite = function($) {
 
@@ -23,7 +23,7 @@ DoubleX.PROJ.MINESWEEPER.TEST.UNIT.RunFCMenuUnitTestSuite = function($) {
      * @author DoubleX
      * @param {String/Nullable} wHMineNum - The raw board param inputs
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $$$._wHMineNum = function(wHMineNum) {
         // Ensures the output's the expected one with respect to the input
@@ -52,19 +52,13 @@ DoubleX.PROJ.MINESWEEPER.TEST.UNIT.RunFCMenuUnitTestSuite = function($) {
         }
         if (unitTestWHMineNum4) {
             console.info("Failed the 4th test! Actual value: " + unitTestWHMineNum4);
-        } else {
-            console.info("Passed the 4th test!");
-        }
+        } else console.info("Passed the 4th test!");
         if (unitTestWHMineNum5) {
             console.info("Failed the 5th test! Actual value: " + unitTestWHMineNum5);
-        } else {
-            console.info("Passed the 5th test!");
-        }
+        } else console.info("Passed the 5th test!");
         if (unitTestWHMineNum6) {
             console.info("Failed the 6th test! Actual value: " + unitTestWHMineNum6);
-        } else {
-            console.info("Passed the 6th test!");
-        }
+        } else console.info("Passed the 6th test!");
         //
     }; // $$$._wHMineNum
 
