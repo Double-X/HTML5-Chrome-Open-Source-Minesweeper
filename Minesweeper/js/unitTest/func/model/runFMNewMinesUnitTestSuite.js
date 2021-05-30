@@ -4,7 +4,7 @@
  * @author DoubleX
  * @param {Function} $ - The component to be unit tested
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 DoubleX.PROJ.MINESWEEPER.TEST.UNIT.RunFMNewMinesUnitTestSuite = function($) {
 
@@ -23,7 +23,7 @@ DoubleX.PROJ.MINESWEEPER.TEST.UNIT.RunFMNewMinesUnitTestSuite = function($) {
      * @author DoubleX
      * @param {Number} availGridNum - The number of available grids
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $$$._unitTestRandMinePosIndex = function(availGridNum) {
         // Ensures the output's E and Var are within the 95% confidence interval
@@ -50,14 +50,10 @@ DoubleX.PROJ.MINESWEEPER.TEST.UNIT.RunFMNewMinesUnitTestSuite = function($) {
         console.info("vari: " + vari);
         if (mean >= minE && mean <= maxE) {
             console.info("Passed the 1st test!");
-        } else {
-            console.info("Failed the 1st test!");
-        }
+        } else console.info("Failed the 1st test!");
         if (vari >= minV && vari <= maxV) {
             console.info("Passed the 2nd test!");
-        } else {
-            console.info("Failed the 2nd test!");
-        }
+        } else console.info("Failed the 2nd test!");
         //
     }; // $$$._unitTestRandMinePosIndex
 
