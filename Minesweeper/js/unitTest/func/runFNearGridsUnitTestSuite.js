@@ -4,7 +4,7 @@
  * @author DoubleX
  * @param {Function} $ - The component to be unit tested
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 DoubleX.PROJ.MINESWEEPER.TEST.UNIT.RunFNearGridsUnitTestSuite = function($) {
 
@@ -26,7 +26,7 @@ DoubleX.PROJ.MINESWEEPER.TEST.UNIT.RunFNearGridsUnitTestSuite = function($) {
      * @param {Number} w - The number of cols constituting the grids
      * @param {Number} h - The number of rows constituting the grids
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $$$._nearGridBounds = function(x, y, w, h) {
         // Ensures the output's the expected one with respect to the input
@@ -44,7 +44,7 @@ DoubleX.PROJ.MINESWEEPER.TEST.UNIT.RunFNearGridsUnitTestSuite = function($) {
         console.info("y: " + y);
         console.info("w: " + w);
         console.info("h: " + h);
-        /*
+        /**
          * Pure function
          * @author DoubleX
          * @param {Object[String, Object[String, Number]]} 
@@ -55,68 +55,50 @@ DoubleX.PROJ.MINESWEEPER.TEST.UNIT.RunFNearGridsUnitTestSuite = function($) {
          * @param {Number} yMax - The max y range
          * @returns {Boolean} The check result
          * @since v1.0
-         * @version v1.0
+         * @version v1.1
          */
         function isExpected(unitTestNearGridBounds, xMin, xMax, yMin, yMax) {
             if (unitTestNearGridBounds.x.min !== xMin) return false;
             if (unitTestNearGridBounds.x.max !== xMax) return false;
             if (unitTestNearGridBounds.y.min !== yMin) return false;
             return unitTestNearGridBounds.y.max === yMax;
-        }; // isExpected
+        } // isExpected
         if (isExpected(unitTestNearGridBounds1, 0, 1, 0, 1)) {
             console.info("Passed the 1st test!");
-        } else {
-            console.info("Failed the 1st test! Actual value: " + 
-                    JSON.stringify(unitTestNearGridBounds1));
-        }
+        } else console.info("Failed the 1st test! Actual value: " + 
+                JSON.stringify(unitTestNearGridBounds1));
         if (isExpected(unitTestNearGridBounds2, 0, 1, -1, 1)) {
             console.info("Passed the 2nd test!");
-        } else {
-            console.info("Failed the 2nd test! Actual value: " + 
-                    JSON.stringify(unitTestNearGridBounds2));
-        }
+        } else console.info("Failed the 2nd test! Actual value: " + 
+                JSON.stringify(unitTestNearGridBounds2));
         if (isExpected(unitTestNearGridBounds3, 0, 1, -1, 0)) {
             console.info("Passed the 3rd test!");
-        } else {
-            console.info("Failed the 3rd test! Actual value: " + 
-                    JSON.stringify(unitTestNearGridBounds3));
-        }
+        } else console.info("Failed the 3rd test! Actual value: " + 
+                JSON.stringify(unitTestNearGridBounds3));
         if (isExpected(unitTestNearGridBounds4, -1, 1, 0, 1)) {
             console.info("Passed the 4th test!");
-        } else {
-            console.info("Failed the 4th test! Actual value: " + 
-                    JSON.stringify(unitTestNearGridBounds4));
-        }
+        } else console.info("Failed the 4th test! Actual value: " + 
+                JSON.stringify(unitTestNearGridBounds4));
         if (isExpected(unitTestNearGridBounds5, -1, 1, -1, 1)) {
             console.info("Passed the 5th test!");
-        } else {
-            console.info("Failed the 5th test! Actual value: " + 
-                    JSON.stringify(unitTestNearGridBounds5));
-        }
+        } else console.info("Failed the 5th test! Actual value: " + 
+                JSON.stringify(unitTestNearGridBounds5));
         if (isExpected(unitTestNearGridBounds6, -1, 1, -1, 0)) {
             console.info("Passed the 6th test!");
-        } else {
-            console.info("Failed the 6th test! Actual value: " + 
-                    JSON.stringify(unitTestNearGridBounds6));
-        }
+        } else console.info("Failed the 6th test! Actual value: " + 
+                JSON.stringify(unitTestNearGridBounds6));
         if (isExpected(unitTestNearGridBounds7, -1, 0, 0, 1)) {
             console.info("Passed the 7th test!");
-        } else {
-            console.info("Failed the 7th test! Actual value: " + 
-                    JSON.stringify(unitTestNearGridBounds7));
-        }
+        } else console.info("Failed the 7th test! Actual value: " + 
+                JSON.stringify(unitTestNearGridBounds7));
         if (isExpected(unitTestNearGridBounds8, -1, 0, -1, 1)) {
             console.info("Passed the 8th test!");
-        } else {
-            console.info("Failed the 8th test! Actual value: " + 
-                    JSON.stringify(unitTestNearGridBounds8));
-        }
+        } else console.info("Failed the 8th test! Actual value: " + 
+                JSON.stringify(unitTestNearGridBounds8));
         if (isExpected(unitTestNearGridBounds9, -1, 0, -1, 0)) {
             console.info("Passed the 9th test!");
-        } else {
-            console.info("Failed the 9th test! Actual value: " + 
-                    JSON.stringify(unitTestNearGridBounds9));
-        }
+        } else console.info("Failed the 9th test! Actual value: " + 
+                JSON.stringify(unitTestNearGridBounds9));
         //
     }; // $$$._nearGridBounds
 
