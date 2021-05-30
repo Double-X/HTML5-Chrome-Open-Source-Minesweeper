@@ -9,7 +9,7 @@
  * @param {Object} LIST - The relative file path having all plugin name
  * @param {Subscription} Subscription - Runs the module subscriptions
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(Cfg, Factory, RunUnitTestSuite, LoadPlugins, PLUGINS, LIST, 
         Subscription) {
