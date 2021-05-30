@@ -63,15 +63,15 @@
      * @param {Number} w - The number of cols constituting the grids
      * @param {Number} h - The number of rows constituting the grids
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._resetGrids = function(w, h) {
         /** @todo: Fixes the memory leak caused by the old grids */
-        this._w = w; this._h = h;
+        this._w = w, this._h = h;
         this._grids = [];
         for (var rowIndex = 0; rowIndex < this._h; rowIndex++) {
             this._grids.push(this._resetRowGrids());
-        };
+        }
         //
     }; // $._resetGrids
 
