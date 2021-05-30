@@ -4,7 +4,7 @@
  * @author DoubleX
  * @param {OMGrid} OVTimer - The function of this prototype
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(OVTimer) {
 
@@ -35,7 +35,7 @@
      * @author DoubleX
      * @param {Number} formattedTimer - The formatted timer to be shown
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $$$._formattedTimer = function(formattedTimer) {
         // It's not tautological as it exposes a hidden assumption
@@ -43,9 +43,7 @@
         console.info("formattedTimer: " + formattedTimer);
         if (formattedTimer.match(/\d{3}\.\d{2}/)) {
             console.info("Passed!");
-        } else {
-            console.info("Failed!");
-        }
+        } else console.info("Failed!");
         //
     }; // $$$._formattedTimer
 
