@@ -98,13 +98,12 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMProfile = function(FMJSONIO, PUBLISH) {
      * @param {Function(String)} callback - Called with message upon success
      * @param {Function(String)} errback - Called with messages upon failure
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $.create = function(profileName, profileRegion, callback, errback) {
         if ($._readJSON(profileName)) {
-            return errback($._MSG_ERR_HAS_SUCH_PROFILE);
-        }
-        $._create(profileName, profileRegion, callback, errback);
+            errback($._MSG_ERR_HAS_SUCH_PROFILE);
+        } else $._create(profileName, profileRegion, callback, errback);
     }; // $.create
 
     /**
@@ -303,8 +302,9 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMProfile = function(FMJSONIO, PUBLISH) {
      * @version v1.0
      */
     $._nonNullHighscore = function(boardSpec, profile) {
-        var highscore = $._highscore(boardSpec, profile);
-        if (!highscore) profile.highscores[boardSpec] = {};
+        if (!$._highscore(boardSpec, profile)) {
+            profile.highscores[boardSpec] = {};
+        }
         return profile.highscores[boardSpec];
     }; // $._nonNullHighscore
 
@@ -415,14 +415,13 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMProfile = function(FMJSONIO, PUBLISH) {
      * @param {Array[String]} newHighscoresStats - The list of stats having
      *                                              new highscores
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._checkAddedRecord = function(
             timestamp, callback, errback, profile, newHighscoresStats) {
         if ($._hasTimestamp(timestamp, profile)) {
-            return callback($._MSG_SUC_ADD_RECORD, newHighscoresStats);
-        }
-        errback($._MSG_ERR_ADD_RECORD);
+            callback($._MSG_SUC_ADD_RECORD, newHighscoresStats);
+        } else errback($._MSG_ERR_ADD_RECORD);
     }; // $._checkAddedRecord
 
     /**
@@ -462,15 +461,14 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMProfile = function(FMJSONIO, PUBLISH) {
      * @param {Function(String)} callback - Called with message upon success
      * @param {Function(String)} errback - Called with messages upon failure
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._clearWithRegion = function(
             profileName, profileRegion, callback, errback) {
         $._writeJSON(profileName, $._emptyProfile(profileName, profileRegion));
         if ($._isEmptyProfile($._readJSON(profileName))) {
-            return callback($._MSG_SUC_CLEAR);
-        }
-        errback($._MSG_ERR_CLEAR);
+            callback($._MSG_SUC_CLEAR);
+        } else errback($._MSG_ERR_CLEAR);
     }; // $._clearWithRegion
 
     /**
@@ -481,14 +479,13 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMProfile = function(FMJSONIO, PUBLISH) {
      * @param {Function(String)} callback - Called with message upon success
      * @param {Function(String)} errback - Called with messages upon failure
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._create = function(profileName, profileRegion, callback, errback) {
         $._writeJSON(profileName, $._emptyProfile(profileName, profileRegion));
         if (!$._isEmptyProfile($._readJSON(profileName))) {
-            return errback($._MSG_ERR_CREATE_NEW);
-        }
-        $._switchProfile(profileName, callback, errback, $._readJSON(
+            errback($._MSG_ERR_CREATE_NEW);
+        } else $._switchProfile(profileName, callback, errback, $._readJSON(
                 profileName), "_onCreateSuc", $._MSG_ERR_CREATE_SWITCH);
     }; // $._create
 
@@ -568,15 +565,14 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMProfile = function(FMJSONIO, PUBLISH) {
      * @param {Function(String)} errback - Called with messages upon failure
      * @param {Object} profile - The profile to be edited
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._onPostEdit = function(
             profileName, profileRegion, callback, errback, profile) {
         $._applyEdits(profileName, profileRegion, profile);
         if ($._isRightProfileRegion(profileRegion, $._readJSON(profileName))) {
-            return $._onEditSuc(callback, profile);
-        }
-        errback($._MSG_ERR_EDIT);
+            $._onEditSuc(callback, profile);
+        } else errback($._MSG_ERR_EDIT);
     }; // $._onPostEdit
 
     /**
@@ -1083,14 +1079,13 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMProfile = function(FMJSONIO, PUBLISH) {
      * @param {Function(String)} errback - Called with messages upon failure
      * @param {String} profile - The profile to be stored into
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._checkStoredNewBoardSpec = function(
             w, h, mineNum, callback, errback, profile) {
         if ($._isSameBoardSpec(w, h, mineNum, profile)) {
-            return callback($._MSG_SUC_STORE_NEW_BOARD_SPEC);
-        }
-        errback($._MSG_ERR_STORE_NEW_BOARD_SPEC);
+            callback($._MSG_SUC_STORE_NEW_BOARD_SPEC);
+        } else errback($._MSG_ERR_STORE_NEW_BOARD_SPEC);
     }; // $._checkStoredNewBoardSpec
 
     /**
@@ -1171,13 +1166,12 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMProfile = function(FMJSONIO, PUBLISH) {
      * @param {Function(String)} errback - Called with messages upon failure
      * @param {String} profile - The profile to be stored into
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._checkStoredNewSkin = function(newSkin, callback, errback, profile) {
         if ($._isSameSkin(newSkin, profile)) {
-            return callback($._MSG_SUC_STORE_NEW_SKIN);
-        }
-        errback($._MSG_ERR_STORE_NEW_SKIN);
+            callback($._MSG_SUC_STORE_NEW_SKIN);
+        } else errback($._MSG_ERR_STORE_NEW_SKIN);
     }; // $._checkStoredNewSkin
 
     /**

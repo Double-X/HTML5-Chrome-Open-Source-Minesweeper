@@ -34,11 +34,11 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMNewMines = function(
      * @param {Function} callback - The function of the grid data owner
      * @returns {Array[Array[OGrid]]} The requested list of lists of grid data
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $.newMines = function(oGrids, w, mineNum, sx, sy, callback) {
         $._newMinePosList(w, oGrids.length, mineNum, sx, sy).forEach(
-                $._addNewRandMineFunc(oGrids, w, callback));
+                $._addNewMine.bind($, oGrids, w, callback));
         return oGrids;
     }; // $.newMines
 
@@ -97,38 +97,16 @@ DoubleX.PROJ.MINESWEEPER.FUNC.MODEL.FMNewMines = function(
     }; // $._randMinePosIndex
 
     /**
-     * Potential Hotspot/Pure function
-     * @author DoubleX
-     * @param {Array[Array[OGrid]]} oGrids - List of list of grid data
-     * @param {Number} w - The number of cols constituting the grids
-     * @param {Function} callback - The function of the grid data owner
-     * @since v1.0
-     * @version v1.0
-     */
-    $._addNewRandMineFunc = function(oGrids, w, callback) {
-        /**
-         * Potential Hotspot/Idempotent
-         * @author DoubleX
-         * @param {Number} newMinePos - The 1 dimensional mine position index
-         * @since v1.0
-         * @version v1.0
-         */
-        return function(newMinePos) {
-            $._addNewMine(oGrids, w, newMinePos, callback);
-        };
-    }; // $._addNewRandMineFunc
-
-    /**
      * Potential Hotspot/Idempotent
      * @author DoubleX
      * @param {Array[Array[OGrid]]} oGrids - List of list of grid data
      * @param {Number} w - The number of cols constituting the grids
-     * @param {Number} minePosIndex - The 1 dimensional mine pos index
      * @param {Function} callback - The function of the grid data owner
+     * @param {Number} minePosIndex - The 1 dimensional mine pos index
      * @since v1.0
      * @version v1.0
      */
-    $._addNewMine = function(oGrids, w, minePosIndex, callback) {
+    $._addNewMine = function(oGrids, w, callback, minePosIndex) {
         // Converts the 1 dimensional array index to a 2 dimensional one
         var x = minePosIndex % w, y = _FLOOR(minePosIndex / w);
         //
