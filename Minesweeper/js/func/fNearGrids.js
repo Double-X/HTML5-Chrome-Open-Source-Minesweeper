@@ -59,15 +59,13 @@ DoubleX.PROJ.MINESWEEPER.FUNC.FNearGrids = function(NEAR_RA, PUBLISH) {
             if (isMostLeft) return $._newNearGridBounds(0, NEAR_RA, 0, NEAR_RA);
             if (isMostRight) {
                 return $._newNearGridBounds(-NEAR_RA, 0, 0, NEAR_RA);
-            }
-            return $._newNearGridBounds(-NEAR_RA, NEAR_RA, 0, NEAR_RA);
+            } else return $._newNearGridBounds(-NEAR_RA, NEAR_RA, 0, NEAR_RA);
         } else if (isBottom) {
             if (isMostLeft) {
                 return $._newNearGridBounds(0, NEAR_RA, -NEAR_RA, 0);
             } else if (isMostRight) {
                 return $._newNearGridBounds(-NEAR_RA, 0, -NEAR_RA, 0);
-            }
-            return $._newNearGridBounds(-NEAR_RA, NEAR_RA, -NEAR_RA, 0);
+            } else return $._newNearGridBounds(-NEAR_RA, NEAR_RA, -NEAR_RA, 0);
         } else if (isMostLeft) {
             return $._newNearGridBounds(0, NEAR_RA, -NEAR_RA, NEAR_RA);
         } else if (isMostRight) {
