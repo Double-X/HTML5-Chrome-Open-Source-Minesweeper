@@ -10,7 +10,7 @@
  * @param {Function} PUBLISH - Publishes itself to its subscribers
  * @returns {Object[String, Function]} The requested function mapping
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 DoubleX.PROJ.MINESWEEPER.FUNC.CONTROLLER.FCMenu = function(
         MENU, FC_PROFILE, FC_RECORDS, FM_MENU, CHANGE_SKIN, OC_GRIDS, PUBLISH) {
