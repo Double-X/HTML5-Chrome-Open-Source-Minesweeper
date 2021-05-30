@@ -18,7 +18,7 @@ DoubleX.PROJ.MINESWEEPER.Subscription = function() {
      * @param {String} target - The name of the module to be subscribed
      * @param {Function} callback - The notifying function to be called
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function subscribe(target, callback) {
         // These codes are easy, simple and small enough to be kept all together
@@ -26,25 +26,25 @@ DoubleX.PROJ.MINESWEEPER.Subscription = function() {
         if (_subscriptions[target].indexOf(callback) >= 0) return;
         _subscriptions[target].push(callback);
         //
-    }; // subscribe
+    } // subscribe
 
     /**
      * @author DoubleX
      * @param {String} target - The name of the module to be subscribed
      * @param {Function/Nullable} contents - The contents of the subscribed one
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function publish(target, contents) {
         var subscribers = _subscriptions[target];
         if (subscribers) subscribers.forEach(_notify(contents));
-    }; // publish
+    } // publish
 
     /**
      * @author DoubleX
      * @param {Function/Nullable} contents - The contents of the subscribed one
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _notify(contents) {
         /**
@@ -54,7 +54,7 @@ DoubleX.PROJ.MINESWEEPER.Subscription = function() {
          * @version v1.0
          */
         return function(callback) { callback(contents); };
-    }; // _notify
+    } // _notify
 
     // The Subscription API lists
     return { subscribe: subscribe, publish: publish };

@@ -24,7 +24,7 @@
      * @author DoubleX
      * @returns {Array[Function]} The requested list of modules to be run
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _collectedModules() {
         var modules = [], subscribe = Subscription.subscribe;
@@ -35,16 +35,16 @@
         modules.push(
                 Factory(_CFG, subscribe, Subscription.publish, _runNextModule));
         return modules;
-    }; // _collectedModules
+    } // _collectedModules
 
     /**
      * @author DoubleX
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _runNextModule() {
         if (_modules.length > 0) setTimeout(_modules.shift(), _MODULE_DELAY);
-    };
+    }
 
     window.onload = _runNextModule;
 

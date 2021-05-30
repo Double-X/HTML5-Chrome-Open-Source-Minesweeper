@@ -35,30 +35,30 @@ DoubleX.PROJ.MINESWEEPER.LoadPlugins = function(PLUGINS, LIST, CALLBACK) {
     /**
      * @author DoubleX
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
-    function run() { _loadNextDepartment(); };
+    function run() { _loadNextDepartment(); }
 
     /**
      * @author DoubleX
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _loadNextDepartment() {
         if (_hasNoNextDepartment()) return _onLoadFinish();
         _loadDepartment(_unloadedDepartments.shift());
-    }; // _loadNextDepartment
+    } // _loadNextDepartment
 
     /**
      * Nullipotent
      * @author DoubleX
      * @returns {Boolean} The check result
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _hasNoNextDepartment() {
         return _unloadedDepartments.length <= 0;
-    }; // _hasNoNextDepartment
+    } // _hasNoNextDepartment
 
     /**
      * Idempotent
@@ -71,40 +71,40 @@ DoubleX.PROJ.MINESWEEPER.LoadPlugins = function(PLUGINS, LIST, CALLBACK) {
         _setCurComponent(department);
         setTimeout(_loadNextComponent.bind(undefined, 
                 _COMPONENT_PATHS[department]), _DEPARTMENT_DELAY);
-    }; // _loadDepartment
+    } // _loadDepartment
 
     /**
      * Idempotent
      * @author DoubleX
      * @param {String} department - The name of the department
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _setCurComponent(department) {
         _curUnloadedDepartmentComponents = LIST[department];
-    }; // _setCurComponent
+    } // _setCurComponent
 
     /**
      * @author DoubleX
      * @param {String} path - The path of the plugin component
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _loadNextComponent(path) {
         if (_isFinishLoadingCurComponent()) return _loadNextDepartment();
         _loadComponent(path, _curUnloadedDepartmentComponents.shift());
-    }; // _loadNextComponent
+    } // _loadNextComponent
 
     /**
      * Nullipotent
      * @author DoubleX
      * @returns {Boolean} The check result
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _isFinishLoadingCurComponent() {
         return _curUnloadedDepartmentComponents.length <= 0;
-    }; // _isFinishLoadingCurComponent
+    } // _isFinishLoadingCurComponent
 
     /**
      * @author DoubleX
@@ -116,7 +116,7 @@ DoubleX.PROJ.MINESWEEPER.LoadPlugins = function(PLUGINS, LIST, CALLBACK) {
     function _loadComponent(path, component) {
         _appendComponent(path, component);
         setTimeout(_loadNextComponent.bind(undefined, path), _COMPONENT_DELAY);
-    }; // _loadComponent
+    } // _loadComponent
 
     /**
      * Idempotent
@@ -124,33 +124,33 @@ DoubleX.PROJ.MINESWEEPER.LoadPlugins = function(PLUGINS, LIST, CALLBACK) {
      * @param {String} path - The path of the plugin component
      * @param {String} component - The name of the plugin component
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _appendComponent(path, component) {
         var element = document.createElement('script');
         element.type = 'application/javascript';
         element.src = path + component + '.js';
         document.body.appendChild(element);
-    }; // _loadDepartment
+    } // _loadDepartment
 
     /**
      * @author DoubleX
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _onLoadFinish() {
         _checkAllNeededPlugins();
         CALLBACK();
-    }; // _onLoadFinish
+    } // _onLoadFinish
 
     /**
      * @author DoubleX
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _checkAllNeededPlugins() {
         _KEYS(PLUGINS).forEach(_checkNeededPlugins);
-    }; // _checkAllNeededPlugins
+    } // _checkAllNeededPlugins
 
     /**
      * @author DoubleX
@@ -161,14 +161,14 @@ DoubleX.PROJ.MINESWEEPER.LoadPlugins = function(PLUGINS, LIST, CALLBACK) {
     function _checkNeededPlugins(plugin) {
         _KEYS(PLUGINS[plugin].neededPlugins).forEach(
                 _checkNeededPlugin.bind(undefined, plugin));
-    }; // _checkNeededPlugins
+    } // _checkNeededPlugins
 
     /**
      * @author DoubleX
      * @param {String} plugin - The name of the plugin container
      * @param {String} neededPlugin - The name of the needed one
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _checkNeededPlugin(plugin, neededPlugin) {
         if (PLUGINS[plugin].neededPlugins[neededPlugin]) return;
@@ -177,7 +177,7 @@ DoubleX.PROJ.MINESWEEPER.LoadPlugins = function(PLUGINS, LIST, CALLBACK) {
         alert(msg);
         console.info(msg);
         //
-    }; // _checkNeededPlugin
+    } // _checkNeededPlugin
 
     return run;
 
