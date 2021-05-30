@@ -130,7 +130,7 @@
  * @author DoubleX
  * @param {Object} namespace - The namespace of the whole codebase
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(namespace) {
 
@@ -186,14 +186,12 @@
      * Idempotent
      * @author DoubleX
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._subscribe = function() {
         _SUBSCRIBE("OCGrids path _initCaches", this._initCaches.bind(this));
-        _SUBSCRIBE("OCGrids path _onStart", 
-                this._setIsEnded.bind(this, false).bind(this));
-        _SUBSCRIBE("OCGrids path _onEnd", 
-                this._setIsEnded.bind(this, true).bind(this));
+        _SUBSCRIBE("OCGrids path _onStart", this._setIsEnded.bind(this, false));
+        _SUBSCRIBE("OCGrids path _onEnd", this._setIsEnded.bind(this, true));
     }; // $._subscribe
 
     /**

@@ -4,7 +4,7 @@
  * @author DoubleX
  * @param {Object} namespace - The namespace of the whole codebase
  * @since v1.0
- * @version v1.1
+ * @version v1.0
  */
 (function(namespace) {
 
@@ -20,7 +20,7 @@
  * @author DoubleX
  * @param {Object} namespace - The namespace of the whole codebase
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(namespace) {
 
@@ -165,7 +165,7 @@
      * @author DoubleX
      * @param {Object[String, Function]} fmProfile - The FMProfile API mapping
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $$$._editFMProfile = function(fmProfile) {
         // These codes are easy, simple and small enough to be kept all together
@@ -203,13 +203,8 @@
         };
         fmProfile._demoNameParts = function(stats) {
             return Object.keys(stats).map(
-                    fmProfile._demoNamePartFunc(stats)).join(
+                    fmProfile._demoNamePart.bind(fmProfile, stats)).join(
                     fmProfile._DEMO_NAME_PARTS_SEPARATOR);
-        };
-        fmProfile._demoNamePartFunc = function(stats) {
-            return function(stat) {
-                return fmProfile._demoNamePart(stats, stat);
-            };
         };
         fmProfile._demoNamePart = function(stats, stat) {
             return stat + fmProfile._DEMO_NAME_PARTS_KEY_VAL_SEPARATOR + 
@@ -263,7 +258,7 @@
  * @returns {Object[String, Function]} The requested function mapping
  * @todo: Implements the fastforward and skip to any timing of the demo features
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 DoubleX.PROJ.MINESWEEPER.PLUGINS.DEMO.FCDemo = function(
         TOP_BAR, BOARD, BOTTOM_BAR, OV_LAYOUT, SUBSCRIBE, PUBLISH) {
@@ -1761,7 +1756,7 @@ DoubleX.PROJ.MINESWEEPER.PLUGINS.DEMO.FCDemo = function(
  * @author DoubleX
  * @param {Object} namespace - The namespace of the whole codebase
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(namespace) {
 
@@ -2328,34 +2323,13 @@ DoubleX.PROJ.MINESWEEPER.PLUGINS.DEMO.FCDemo = function(
      * @author DoubleX
      * @param {Number} elapsedMs - The number of milliseconds elapsed
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._updatePastElapsedTime = function(elapsedMs) {
         // Not reloading the whole demo would have to clean way too much mess
-        this._loadDemo(
-                this._file, this._onReloadDemoSucFunc(elapsedMs).bind(this));
+        this._loadDemo(this._file, this._onReloadDemoSuc.bind(this, elapsedMs));
         //
     }; // $._updatePastElapsedTime
-
-    /**
-     * Potential Hotspot/Pure function
-     * @author DoubleX
-     * @param {Number} elapsedMs - The number of milliseconds elapsed
-     * @since v1.0
-     * @version v1.0
-     */
-    $._onReloadDemoSucFunc = function(elapsedMs) {
-       /**
-         * Potential Hotspot
-         * @author DoubleX
-         * @param {String} contents - The contents of the demo to be loaded
-         * @since v1.0
-         * @version v1.0
-         */
-        return function(contents) {
-            this._onReloadDemoSuc(elapsedMs, contents);
-        };
-    }; // $._onReloadDemoSucFunc
 
     /**
      * Potential Hotspot
