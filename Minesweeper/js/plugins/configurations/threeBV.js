@@ -3,7 +3,7 @@
  * @author DoubleX
  * @param {Object} cfg - The plugin configuration container
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(cfg) {
 
@@ -40,9 +40,9 @@
      * @param {Number} mineNum - The number of mines in the grids
      * @returns {Boolean} The check result
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
-    function _isBeg(w, h, mineNum) { return w === h === 8 && mineNum === 10; };
+    function _isBeg(w, h, mineNum) { return w === h === 8 && mineNum === 10; }
 
     /**
      * Potential hotspot/Pure function
@@ -52,9 +52,9 @@
      * @param {Number} mineNum - The number of mines in the grids
      * @returns {Boolean} The check result
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
-    function _isInt(w, h, mineNum) { return w === h === 16 && mineNum === 40; };
+    function _isInt(w, h, mineNum) { return w === h === 16 && mineNum === 40; }
 
     /**
      * Potential hotspot/Pure function
@@ -64,10 +64,10 @@
      * @param {Number} mineNum - The number of mines in the grids
      * @returns {Boolean} The check result
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     function _isExp(w, h, mineNum) {
         return w === 30 && h === 16 && mineNum === 99;
-    }; // _isExp
+    } // _isExp
 
 })(DoubleX.PROJ.MINESWEEPER.PLUGINS.THREE_BV.configuration);
