@@ -4,7 +4,7 @@
  * @author DoubleX
  * @param {OCGrids} OCGrids - The function used by this prototype
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 (function(OCGrids) {
 
@@ -31,7 +31,7 @@
      * No-op
      * @author DoubleX
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $$$._setRemainMineNum = function() {
         // It's not tautological as it exposes a hidden assumption
@@ -40,9 +40,7 @@
         console.info("this._mineNum: " + this._mineNum);
         if (this._remainMineNum <= this._mineNum) {
             console.info("Passed!");
-        } else {
-            console.info("Failed!");
-        }
+        } else console.info("Failed!");
         //
     }; // $$$._setRemainMineNum
 
