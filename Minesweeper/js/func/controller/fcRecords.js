@@ -21,12 +21,11 @@ E.g.: W30H16M99SnnFfalse means the width, height, number of mines, skin name and
      * @author DoubleX
      * @interface
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $.viewHighscores = function() {
         var boardSpec = $._boardSpec();
-        if (!boardSpec) return;
-        FMProfile.giveHighscores(
+        if (boardSpec) FMProfile.giveHighscores(
                 boardSpec, $._viewHighscoresSuc, $._viewHighscoresFail);
     }; // $.viewHighscores
 

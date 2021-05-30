@@ -163,14 +163,14 @@ DoubleX.PROJ.MINESWEEPER.FUNC.CONTROLLER.FCMenu = function(
      * @author DoubleX
      * @returns {Array} The requested argument list
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._newWHMineNum = function() {
         // These codes are easy, simple and small enough to be kept all together
         var newWHMineNum = "", func = FM_MENU.msgBoardParamCheckResults;
         do {
             newWHMineNum = this._wHMineNum(prompt(FM_MENU.msgNewWHMineNum()));
-        } while (newWHMineNum && !$._isValidBoard(func.apply($, newWHMineNum)))
+        } while (newWHMineNum && !$._isValidBoard(func.apply($, newWHMineNum)));
         return newWHMineNum || [];
         //
     }; // $._newWHMineNum
@@ -181,21 +181,11 @@ DoubleX.PROJ.MINESWEEPER.FUNC.CONTROLLER.FCMenu = function(
      * @param {String/Nullable} wHMineNum - The raw board param inputs
      * @returns {Array/Nullable} The requested argument list
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._wHMineNum = function(wHMineNum) {
-        return wHMineNum ? wHMineNum.split(/\D+/).map($._toNum) : wHMineNum;
+        return wHMineNum ? wHMineNum.split(/\D+/).map(Number) : wHMineNum;
     }; // $._wHMineNum
-
-    /**
-     * Pure function
-     * @author DoubleX
-     * @param {String} param - The board param in String
-     * @returns {Number} The requested param in Number
-     * @since v1.0
-     * @version v1.0
-     */
-    $._toNum = function(param) { return +param; };
 
     /**
      * Idempotent
@@ -243,14 +233,14 @@ DoubleX.PROJ.MINESWEEPER.FUNC.CONTROLLER.FCMenu = function(
      * @author DoubleX
      * @returns {String/Nullable} The requested skin name
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._newSkin = function() {
         // These codes are easy, simple and small enough to be kept all together
         var newSkin = "";
         do {
             newSkin = prompt(FM_MENU.msgAvailableSkins());
-        } while (newSkin && !FM_MENU.isAvailableSkin(newSkin))
+        } while (newSkin && !FM_MENU.isAvailableSkin(newSkin));
         return newSkin;
     //
     }; // $._newSkin

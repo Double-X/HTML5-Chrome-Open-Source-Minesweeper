@@ -122,13 +122,13 @@ DoubleX.PROJ.MINESWEEPER.FUNC.CONTROLLER.FCProfile = function(
      * @author DoubleX
      * @returns {String/Nullable} The requested command name
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._profileCmd = function() {
         var profileCmd = "";
         do {
             profileCmd = prompt($._msgProfileCmds());
-        } while (profileCmd && !$._isValidCmd(profileCmd))
+        } while (profileCmd && !$._isValidCmd(profileCmd));
         return profileCmd;
     }; // $._profileCmd
 
@@ -174,14 +174,13 @@ DoubleX.PROJ.MINESWEEPER.FUNC.CONTROLLER.FCProfile = function(
      * @author DoubleX
      * @param {String} cmd - The name of the profile command to be executed
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     $._operateProfileWithNameAndRegion = function(cmd) {
         var profileName = $._profileName();
         if (!profileName) return;
         var profileRegion = $._profileRegion();
-        if (!profileRegion) return;
-        FMProfile[cmd](
+        if (profileRegion) FMProfile[cmd](
                 profileName, profileRegion, $._cmdExecSuc, $._cmdExecFail);
     }; // $._operateProfileWithNameAndRegion
 
