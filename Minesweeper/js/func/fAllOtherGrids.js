@@ -5,7 +5,7 @@
  * @param {Function} PUBLISH - Publishes itself to its subscribers
  * @returns {Object[String, Function]} The requested function mapping
  * @since v1.0
- * @version v1.0
+ * @version v1.1
  */
 DoubleX.PROJ.MINESWEEPER.FUNC.FAllOtherGrids = function(PUBLISH) {
 
