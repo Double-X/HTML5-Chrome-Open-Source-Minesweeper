@@ -7,7 +7,7 @@
      * @param {Function} SUBSCRIBE - Subscribes to a component
      * @param {Function} CALLBACK - Called when all tests are attached
      * @since v1.0
-     * @version v1.0
+     * @version v1.1
      */
     namespace.RunUnitTestSuite = function(SUBSCRIBE, CALLBACK) {
 
@@ -20,7 +20,7 @@
          * @author DoubleX
          * @interface
          * @since v1.0
-         * @version v1.0
+         * @version v1.1
          */
         function subscribe() {
             SUBSCRIBE("FNearGrids", _NAMESPACE.RunFNearGridsUnitTestSuite);
@@ -29,7 +29,7 @@
             SUBSCRIBE("FVRemainMineNum", 
                     _NAMESPACE.RunFVRemainMineNumUnitTestSuite);
             CALLBACK();
-        }; // subscribe
+        } // subscribe
 
         return subscribe; // The RunUnitTestSuite API
 
